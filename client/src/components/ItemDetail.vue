@@ -56,9 +56,7 @@ async function handleSubmit() {
 
     <div v-else class="h-full rounded-lg border border-gray-200 bg-white">
         <div class="flex items-center justify-between border-b border-gray-200 p-4">
-            <h2 class="font-semibold text-gray-800">
-                {{ isNew ? "Item Baru" : "Detail Item" }}
-            </h2>
+            <h2 class="font-semibold text-gray-800">{{ isNew ? "Item Baru" : "Detail Item" }}</h2>
             <button v-if="!isNew" @click="emit('delete', item._id)" class="text-sm font-medium text-red-500 transition hover:text-red-600">Hapus</button>
         </div>
 
@@ -90,21 +88,13 @@ async function handleSubmit() {
             <div class="grid grid-cols-2 gap-4">
                 <div>
                     <label class="mb-1 block text-sm font-medium text-gray-600">Harga</label>
-                    <input
-                        v-model.number="form.price"
-                        type="number"
-                        min="0"
-                        class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-brand-400 focus:outline-none focus:ring-1 focus:ring-brand-400"
-                    />
+                    <input v-model.number="form.price" type="number" min="0"
+                        class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-brand-400 focus:outline-none focus:ring-1 focus:ring-brand-400" />
                 </div>
                 <div>
                     <label class="mb-1 block text-sm font-medium text-gray-600">Stok</label>
-                    <input
-                        v-model.number="form.stock"
-                        type="number"
-                        min="0"
-                        class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-brand-400 focus:outline-none focus:ring-1 focus:ring-brand-400"
-                    />
+                    <input v-model.number="form.stock" type="number" min="0"
+                        class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-brand-400 focus:outline-none focus:ring-1 focus:ring-brand-400" />
                 </div>
             </div>
 

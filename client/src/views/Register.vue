@@ -47,13 +47,8 @@ async function handleSubmit() {
                 </div>
                 <div>
                     <label class="mb-1 block text-sm font-medium text-gray-600">Password</label>
-                    <input
-                        v-model="form.password"
-                        type="password"
-                        required
-                        minlength="6"
-                        class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-brand-400 focus:outline-none focus:ring-1 focus:ring-brand-400"
-                    />
+                    <input v-model="form.password" type="password" required minlength="6"
+                        class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-brand-400 focus:outline-none focus:ring-1 focus:ring-brand-400" />
                 </div>
                 <button type="submit" :disabled="loading" class="w-full rounded-md bg-brand-500 py-2 text-sm font-medium text-white transition hover:bg-brand-600 disabled:opacity-60">
                     {{ loading ? "Memproses..." : "Daftar" }}

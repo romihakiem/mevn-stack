@@ -1,11 +1,17 @@
 <script setup>
+import Pagination from "./Pagination.vue";
+
 defineProps({
     items: { type: Array, required: true },
     selectedId: { type: String, default: null },
     search: { type: String, default: "" },
+    page: { type: Number, default: 1 },
+    totalPages: { type: Number, default: 1 },
+    hasPrevPage: { type: Boolean, default: false },
+    hasNextPage: { type: Boolean, default: false },
 });
 
-const emit = defineEmits(["select", "new", "update:search"]);
+const emit = defineEmits(["select", "new", "update:search", "page-change"]);
 </script>
 
 <template>
@@ -15,12 +21,8 @@ const emit = defineEmits(["select", "new", "update:search"]);
                 <h2 class="font-semibold text-gray-800">Daftar Item</h2>
                 <button @click="emit('new')" class="rounded-md bg-brand-500 px-3 py-1.5 text-sm font-medium text-white transition hover:bg-brand-600">+ Tambah</button>
             </div>
-            <input
-                :value="search"
-                @input="emit('update:search', $event.target.value)"
-                placeholder="Cari item..."
-                class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-brand-400 focus:outline-none focus:ring-1 focus:ring-brand-400"
-            />
+            <input :value="search" @input="emit('update:search', $event.target.value)" placeholder="Cari item..."
+                class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-brand-400 focus:outline-none focus:ring-1 focus:ring-brand-400" />
         </div>
 
         <ul class="flex-1 overflow-y-auto">
@@ -37,5 +39,7 @@ const emit = defineEmits(["select", "new", "update:search"]);
                 </button>
             </li>
         </ul>
+
+        <Pagination :page="page" :total-pages="totalPages" :has-prev-page="hasPrevPage" :has-next-page="hasNextPage" @page-change="emit('page-change', $event)" />
     </div>
 </template>

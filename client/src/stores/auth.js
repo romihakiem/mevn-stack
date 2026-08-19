@@ -37,11 +37,7 @@ export const useAuthStore = defineStore("auth", {
         },
 
         async register(name, email, password) {
-            const res = await api.post("/auth/register", {
-                name,
-                email,
-                password,
-            });
+            const res = await api.post("/auth/register", { name, email, password });
             this.persistSession(res.data);
             return res.data.user;
         },
