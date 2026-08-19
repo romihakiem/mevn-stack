@@ -5,10 +5,10 @@ import { useAuthStore } from "./stores/auth";
 const authStore = useAuthStore();
 
 onMounted(() => {
-  authStore.fetchCurrentUser();
+    authStore.fetchCurrentUser();
 });
 </script>
 
 <template>
-  <router-view />
+    <router-view />
 </template>
